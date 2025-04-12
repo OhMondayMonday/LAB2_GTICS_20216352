@@ -16,7 +16,7 @@
       </thead>
       <tbody>
         <tr th:each="auto : ${autos}">
-          <td th:text="'Marca: ' + ${auto.marca} + ', Modelo: ' + ${auto.modelo} + ', Placa: ' + ${auto.placa} + ', Año: ' + ${auto.anio}"></td>
+          <td th:text="'Color: ' + ${auto.color} + ', Modelo: ' + ${auto.modelo} + ', kilometraje: ' + ${auto.kilometraje} + ', costoPorDia: ' + ${auto.costoPorDia}"></td>
           <td><a th:href="@{'/autos/editar/' + ${auto.id}}"><button>Editar</button></a></td>
           <td><a th:href="@{'/autos/eliminar/' + ${auto.id}}"><button>Eliminar</button></a></td>
         </tr>
