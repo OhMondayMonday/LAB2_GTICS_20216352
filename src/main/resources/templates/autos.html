@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Lista de Autos</title>
+  </head>
+  <body>
+    <h1>Lista de Autos</h1>
+    <a th:href="@{/autos/nuevo}"><button>Agregar Auto</button></a>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Datos</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="auto : ${autos}">
+          <td th:text="'Marca: ' + ${auto.marca} + ', Modelo: ' + ${auto.modelo} + ', Placa: ' + ${auto.placa} + ', Año: ' + ${auto.anio}"></td>
+          <td><a th:href="@{'/autos/editar/' + ${auto.id}}"><button>Editar</button></a></td>
+          <td><a th:href="@{'/autos/eliminar/' + ${auto.id}}"><button>Eliminar</button></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
