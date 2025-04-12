@@ -6,10 +6,7 @@ import com.example.lab2_20216352.repositories.SeguroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/seguros")
@@ -29,5 +26,12 @@ public class SeguroController {
         seguroRepository.save(seguro);
         return "redirect:/seguros";
     }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminarSeguro(@PathVariable("id") Integer id) {
+        seguroRepository.deleteById(id);
+        return "redirect:/seguros";
+    }
+
 
 }

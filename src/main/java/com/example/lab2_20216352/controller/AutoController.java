@@ -5,10 +5,7 @@ import com.example.lab2_20216352.repositories.AutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/autos")
@@ -31,6 +28,12 @@ public class AutoController {
     @PostMapping("/guardar")
     public String guardarAuto(@ModelAttribute("auto") Auto auto) {
         autoRepository.save(auto);
+        return "redirect:/autos";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminarAuto(@PathVariable("id") Integer id) {
+        autoRepository.deleteById(id);
         return "redirect:/autos";
     }
 }
