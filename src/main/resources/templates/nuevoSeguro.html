@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Registrar Seguro</title>
+    </head>
+    <body>
+        <h1>Registrar Seguro</h1>
+        <form th:action="@{/seguros/guardar}" th:object="${seguro}" method="post">
+            Tipo: <input type="text" th:field="*{coberturaMaxima}" /><br>
+            Empresa: <input type="text" th:field="*{empresa}" /><br>
+            Cobertura: <input type="text" th:field="*{tarifa}" /><br>
+            <button type="submit">Guardar</button>
+        </form>
+    </body>
+</html>
